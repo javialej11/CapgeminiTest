@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="customer") // Mala practica, los nombres de tabla para base de datos son en plural
@@ -16,24 +19,35 @@ public class Customer {
 	@Column(length = 11)
 	private Long id;
 	
-	@Column(length = 100)
+	@NotEmpty
+	@Size(min=1, max=100)
+	@Column(nullable=false, length = 100)
 	private String name;
 	
-	@Column(length = 100)
+	@NotEmpty
+	@Size(min=1, max=100)
+	@Column(nullable=false, length = 100)
 	private String surname;
 	
-	@Column(name = "customer_id", length = 15)
+	@NotEmpty
+	@Size(min=1, max=15)
+	@Column(name = "customer_id", nullable=false, length = 15)
 	private String customerId;
 	
-	@Column(length = 50)
+	@NotEmpty
+	@Email
+	@Column(nullable=false, unique=true, length = 50)
 	private String email;
 	
+	@NotEmpty
 	@Column(length = 15)
 	private String mobile;
 	
 	@Column(length = 15)
 	private String phone;
 	
+	@NotEmpty
+	@Size(min=1, max=100)
 	@Column(length = 100)
 	private String password;
 
