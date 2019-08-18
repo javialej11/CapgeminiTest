@@ -17,6 +17,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import com.javialej.MyBankBackend.MyBankBackendApplication;
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter{
@@ -33,7 +35,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		
 		security.tokenKeyAccess("permitAll()")
 		.checkTokenAccess("isAuthenticated()");
-		
 	}
 	
 	@Override
@@ -51,7 +52,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationManager)
+		endpoints
+		.pathMapping("/oauth/token", MyBankBackendApplication.API+"/login")
+		.authenticationManager(authenticationManager)
 		.tokenStore(tokenStore())
 		.accessTokenConverter(accessTokenConverter());
 	}
