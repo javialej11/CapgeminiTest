@@ -15,7 +15,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, MyBankBackendApplication.API + "/").permitAll()
+		.antMatchers(HttpMethod.GET, MyBankBackendApplication.API + "/customer/").permitAll()
+		.antMatchers(HttpMethod.POST, MyBankBackendApplication.API + "/customer/sign-up").permitAll()
 		.anyRequest().authenticated();
 	}
 	
