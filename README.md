@@ -1,4 +1,23 @@
-csInstrucciones:
+Desarrollo de la prueba:
+----------------
+
+Servicios construidos: 
+
+- /login -> Se implementó OAuth2.0 por lo tanto requiere autenticación Basic <token>. Si se realiza con Postman en la sección de Authorization seleccionar Basic e indicar el cliente: "frontendapp" y password: "frontendsecret".
+ 
+- /customer/  -> Es un endpoint que muestra los datos de los clientes sin autenticación solo para probar el API
+
+- /customer/{getId}/get  -> Es un endpoint asegurado, requiere un token autenticado con el Header: Authorization Bearer <token>
+ 
+- /sign-up -> Es un endpoint sin autenticación para creación de nuevos clientes.
+
+
+Para la correcta implementación de OAuth2.0 se requirió añadir la columna Enabled (Type BOOLEAN) en la tabla "customer" y la tabla "roles", Así como la relación muchos a muchos "customer_roles". El nuevo modelo se nombra "Database Update" y se adjunta en la carpeta /db con su diagrama para que sea cargado en MySQL Server correctamente y la aplicación funcione sin inconvenientes.
+
+--------------------------------
+
+
+Instrucciones:
 ----------------
 Desarrollar las APIs requeridas para el sistema del banco MyBank basados en el documento de especificacion MyBank Webservice API Specification.pdf
 
