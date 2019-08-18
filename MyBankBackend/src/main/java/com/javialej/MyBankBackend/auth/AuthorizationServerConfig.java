@@ -33,7 +33,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		
 		security.tokenKeyAccess("permitAll()")
 		.checkTokenAccess("isAuthenticated()");
-		
 	}
 	
 	@Override
@@ -43,7 +42,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.withClient("frontendapp")
 		.secret(passwordEncoder.encode("frontendsecret"))
 		.scopes("read", "write")
-		.authorizedGrantTypes("password", "refresh_token")
+		// .authorizedGrantTypes("password", "refresh_token")
 		.accessTokenValiditySeconds(3600)
 		.refreshTokenValiditySeconds(3600);
 		
@@ -51,7 +50,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationManager)
+		endpoints
+		.pathMapping("/oauth/token", "/login")
+		.authenticationManager(authenticationManager)
 		.tokenStore(tokenStore())
 		.accessTokenConverter(accessTokenConverter());
 	}

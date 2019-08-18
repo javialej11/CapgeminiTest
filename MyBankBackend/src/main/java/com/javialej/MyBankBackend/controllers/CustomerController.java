@@ -36,8 +36,6 @@ public class CustomerController {
 	public List<Customer> index(){
 		return customerService.findAll();
 	}
-		
-	// Necesita Pre-Authorize, Si hay error responder 403 Forbidden 
 	
 	@GetMapping("/{customerId}/get")
 	public ResponseEntity<?> show(@PathVariable Long customerId){
@@ -97,6 +95,7 @@ public class CustomerController {
 		}
 		
 		try {
+			customer.setRoles();
 			customerService.save(customer);
 			
 			message = "Customer created successfully";

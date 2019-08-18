@@ -68,8 +68,8 @@ public class Customer implements Serializable{
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="customer_roles", 
 		joinColumns = @JoinColumn(name="customer_id"), 
-		inverseJoinColumns = @JoinColumn(name="role_id"),
-		uniqueConstraints = {@UniqueConstraint(columnNames = {"customer_id", "role_id" })})
+		inverseJoinColumns = @JoinColumn(name="roles_id"),
+		uniqueConstraints = {@UniqueConstraint(columnNames = {"customer_id", "roles_id" })})
 	private List<Role> roles;
 	
 	private Boolean enabled;
