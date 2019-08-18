@@ -42,7 +42,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.withClient("frontendapp")
 		.secret(passwordEncoder.encode("frontendsecret"))
 		.scopes("read", "write")
-		// .authorizedGrantTypes("password", "refresh_token")
+		.authorizedGrantTypes("password", "refresh_token")
 		.accessTokenValiditySeconds(3600)
 		.refreshTokenValiditySeconds(3600);
 		
