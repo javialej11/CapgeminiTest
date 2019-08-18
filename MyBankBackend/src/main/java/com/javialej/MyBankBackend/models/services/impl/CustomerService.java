@@ -1,6 +1,5 @@
 package com.javialej.MyBankBackend.models.services.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,15 +12,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.javialej.MyBankBackend.models.dao.ICustomerDAO;
 import com.javialej.MyBankBackend.models.entity.Customer;
-import com.javialej.MyBankBackend.models.entity.Role;
 import com.javialej.MyBankBackend.models.services.ICustomerService;
-import com.javialej.MyBankBackend.models.services.IRoleService;
 
 @Service
 public class CustomerService implements ICustomerService, UserDetailsService{
@@ -29,13 +25,7 @@ public class CustomerService implements ICustomerService, UserDetailsService{
 	private Logger logger = LoggerFactory.getLogger(CustomerService.class);
 	
 	@Autowired
-	public BCryptPasswordEncoder passwordEncoder;
-	
-	@Autowired
 	private ICustomerDAO customerDAO;
-	
-	@Autowired
-	private IRoleService roleService;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -51,12 +41,7 @@ public class CustomerService implements ICustomerService, UserDetailsService{
 
 	@Override
 	@Transactional
-	public Customer save(Customer customer) {	
-		Role role = roleService.findById((long) 1);
-		List<Role> roles = new ArrayList<>();
-		roles.add(role);
-		customer.setRoles(roles);
-		customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+	public Customer save(Customer customer) {
 		return customerDAO.save(customer);
 	}
 

@@ -13,10 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javialej.MyBankBackend.MyBankBackendApplication;
@@ -31,12 +32,14 @@ public class CustomerController {
 	@Autowired
 	private ICustomerService customerService;
 	
-	@RequestMapping(value="/", method = RequestMethod.GET, headers = "Accept=application/json")
+	@GetMapping("/")
 	public List<Customer> index(){
 		return customerService.findAll();
 	}
+		
+	// Necesita Pre-Authorize, Si hay error responder 403 Forbidden 
 	
-	@RequestMapping(value="/{customerId}/get", method = RequestMethod.GET, headers = "Accept=application/json")
+	@GetMapping("/{customerId}/get")
 	public ResponseEntity<?> show(@PathVariable Long customerId){
 		
 		String message = "";
@@ -66,7 +69,7 @@ public class CustomerController {
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/sign-up", method = RequestMethod.POST, headers = "Accept=application/json")
+	@PostMapping("/sign-up")
 	public ResponseEntity<?> create(@Valid @RequestBody Customer customer, BindingResult result){
 
 		String message = "";
@@ -112,7 +115,7 @@ public class CustomerController {
 			response.put("timestamp", timeStampMillis);
 			response.put("status", HttpStatus.INTERNAL_SERVER_ERROR);
 			response.put("error", "Internal Server Error");
-			response.put("exception", e.getStackTrace());
+			response.put("exception", e.getStackTrace().toString());
 			response.put("message", message);
 			response.put("path", MyBankBackendApplication.API+"/customer/sign-up");
 			
