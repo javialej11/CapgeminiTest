@@ -17,6 +17,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.GET, MyBankBackendApplication.API + "/customer/").permitAll()
 		.antMatchers(HttpMethod.POST, MyBankBackendApplication.API + "/customer/sign-up").permitAll()
+		.antMatchers(HttpMethod.GET, "/v2/api-docs*").permitAll()
+		.antMatchers(HttpMethod.GET, "/swagger-ui.html*").permitAll()
 		.anyRequest().authenticated();
 	}
 	
