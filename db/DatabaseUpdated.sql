@@ -61,7 +61,7 @@ CREATE TABLE `customer` (
   `enabled` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `customer_id_UNIQUE` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,8 +120,8 @@ CREATE TABLE `customer_roles` (
   `roles_id` int(11) NOT NULL,
   PRIMARY KEY (`customer_id`,`roles_id`),
   KEY `fk_customer_roles_2_idx` (`roles_id`),
-  CONSTRAINT `fk_customer_roles_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_customer_roles_2` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_customer_roles_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_customer_roles_2` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -131,6 +131,7 @@ CREATE TABLE `customer_roles` (
 
 LOCK TABLES `customer_roles` WRITE;
 /*!40000 ALTER TABLE `customer_roles` DISABLE KEYS */;
+INSERT INTO `customer_roles` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1);
 /*!40000 ALTER TABLE `customer_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,6 +181,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'ROLE_USER'),(2,'ROLE_ADMIN');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-17 21:59:01
+-- Dump completed on 2019-08-19 12:29:39
