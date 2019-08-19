@@ -6,4 +6,6 @@ public interface IRoleService {
 	
 	public Role findById(Long id);
 	
+	public Role findByName(String name);
+	
 }
