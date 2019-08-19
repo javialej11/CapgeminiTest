@@ -3,16 +3,20 @@ Desarrollo de la prueba:
 
 Servicios construidos: 
 
-- /login -> Se implementó OAuth2.0 por lo tanto requiere autenticación Basic <token>. Si se realiza con Postman en la sección de Authorization seleccionar Basic e indicar el cliente: "frontendapp" y password: "frontendsecret".
+- /login -> Se implementó OAuth2.0 con JWT Token por lo tanto requiere autenticación Basic <token>. Si se realiza con Postman en la sección de Authorization seleccionar Basic e indicar el cliente: "frontendapp" y password: "frontendsecret".
  
 - /customer/  -> Es un endpoint que muestra los datos de los clientes sin autenticación solo para probar el API
 
-- /customer/{getId}/get  -> Es un endpoint asegurado, requiere un token autenticado con el Header: Authorization Bearer <token>
+- /customer/{getId}/get  -> Es un endpoint asegurado, requiere un token valido en el header: Authorization Bearer <token>
  
-- /sign-up -> Es un endpoint sin autenticación para creación de nuevos clientes.
+- /sign-up -> Es un endpoint sin autenticación para creación de nuevos clientes, requiere enviar los campos diligenciados correctamente en la Entity Customer para que sea valido. Se implementó validación de formulario en el servidor.
 
 
 Para la correcta implementación de OAuth2.0 se requirió añadir la columna Enabled (Type BOOLEAN) en la tabla "customer" y la tabla "roles", Así como la relación muchos a muchos "customer_roles". El nuevo modelo se nombra "Database Update" y se adjunta en la carpeta /db con su diagrama para que sea cargado en MySQL Server correctamente y la aplicación funcione sin inconvenientes.
+
+Se comparte una Postman Collection donde están los ejemplos para consumir los servicios, se encuentra en la carpeta /db.
+
+La documentación con Swagger se puede visualizar en el endpoint: /api/1.0/swagger-ui.html
 
 --------------------------------
 
