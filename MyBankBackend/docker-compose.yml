@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql-mybank
+    container_name: mysql-mybank-dev
+    restart: always
+    networks:
+      - app
+    
+  spring-boot-webapp:
+    depends_on:
+      - mysql
+    image: spring-boot-docker
+    container_name: spring-boot-webapp        
+    ports:
+      - 8080:8080
+    links: 
+      - mysql:mysql
+    restart: always    
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
