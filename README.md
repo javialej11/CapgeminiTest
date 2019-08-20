@@ -18,6 +18,13 @@ Se comparte una Postman Collection donde están los ejemplos para consumir los s
 
 La documentación con Swagger se puede visualizar en el endpoint: /api/1.0/swagger-ui.html
 
+Dockerfile for Spring Boot App in ~/MyBankApplication --> spring-boot-docker (Image)
+Dockerfile for Spring Boot App in ~/db                --> mysql-mybank (Image)
+
+docker-compose.yml --> Integrates both containers
+
+Unit Tests Added: CustomerTests, require Authentication to work perfect. (BugFix in progress...)
+
 --------------------------------
 
 
