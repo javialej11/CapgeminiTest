@@ -28,6 +28,8 @@ public class CustomerService implements ICustomerService, UserDetailsService{
 	
 	private Logger logger = LoggerFactory.getLogger(CustomerService.class);
 	
+	private final String ROLE_USER = "ROLE_USER";
+	
 	@Autowired
 	public BCryptPasswordEncoder passwordEncoder;
 	
@@ -52,7 +54,7 @@ public class CustomerService implements ICustomerService, UserDetailsService{
 	@Override
 	@Transactional
 	public Customer save(Customer customer) {	
-		Role role = roleService.findById((long) 1);
+		Role role = roleService.findByName(ROLE_USER);
 		List<Role> roles = new ArrayList<>();
 		roles.add(role);
 		customer.setRoles(roles);

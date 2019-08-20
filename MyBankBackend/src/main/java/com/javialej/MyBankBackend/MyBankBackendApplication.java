@@ -8,8 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class MyBankBackendApplication implements CommandLineRunner{
-
-	public final static String API = "/api/1.0";
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MyBankBackendApplication.class, args);

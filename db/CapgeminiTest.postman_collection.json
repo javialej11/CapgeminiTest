@@ -1,0 +1,429 @@
+{
+	"info": {
+		"_postman_id": "7407ef0e-41d0-4ca0-a5fd-9d9c2e3a3626",
+		"name": "CapgeminiTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/api/1.0/customer/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "frontendsecret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "frontendapp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "passwodrd",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/1.0/customer/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"1.0",
+						"customer",
+						""
+					]
+				},
+				"description": "List of customer without protection"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/1.0/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "frontendsecret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "frontendapp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "javialej",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "javialej",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/1.0/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"1.0",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "javialej",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "javialej",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2019 03:16:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjYxMDE3NjcsInVzZXJfbmFtZSI6ImphdmlhbGVqIiwianRpIjoiZWQ2ZDI5OTEtMmY2OC00MjBjLWI1ODAtMGNkYmQ0NzMzODMxIiwiY2xpZW50X2lkIjoiZnJvbnRlbmRhcHAiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.Z_JwwY1DEyaH6FfjJ1I47pQJ53Pd7GE_zpF-jLgocX4\",\n    \"token_type\": \"bearer\",\n    \"expires_in\": 3599,\n    \"scope\": \"read write\",\n    \"jti\": \"ed6d2991-2f68-420c-b580-0cdbd4733831\"\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/api/1.0/customer/1/get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjYxMDE3NjcsInVzZXJfbmFtZSI6ImphdmlhbGVqIiwianRpIjoiZWQ2ZDI5OTEtMmY2OC00MjBjLWI1ODAtMGNkYmQ0NzMzODMxIiwiY2xpZW50X2lkIjoiZnJvbnRlbmRhcHAiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.Z_JwwY1DEyaH6FfjJ1I47pQJ53Pd7GE_zpF-jLgocX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/1.0/customer/1/get",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"1.0",
+						"customer",
+						"1",
+						"get"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/api/1.0/customer/1/get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/1.0/customer/1/get",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"1.0",
+								"customer",
+								"1",
+								"get"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2019 03:16:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"John\",\n    \"surname\": \"Lydon\",\n    \"customerId\": \"1012345\",\n    \"email\": \"john.lydon@sexpistols.com\",\n    \"mobile\": \"1200300400\",\n    \"phone\": null,\n    \"password\": \"******\",\n    \"roles\": [],\n    \"enabled\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/api/1.0/customer/sign-up",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjYyMzg1NDAsInVzZXJfbmFtZSI6ImphdmlhbGVqIiwianRpIjoiNTQzYTYwNzUtYTdhNS00MzQzLTllNmQtZDBhZGY2MTQ0ZDI4IiwiY2xpZW50X2lkIjoiZnJvbnRlbmRhcHAiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.iNCXlOouKMuX7nvoQdqebikEXGlXZIMFccB7wRLr6Kc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"usertest3\",\n    \"surname\": \"usertest3\",\t\n    \"customerId\": \"usertest3\",\n    \"email\": \"usertest@email.com\",\n    \"mobile\": \"3000000000\",\n    \"phone\": null,\n    \"password\": \"usertest\",\n    \"enabled\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/1.0/customer/sign-up",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"1.0",
+						"customer",
+						"sign-up"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/api/1.0/customer/sign-up",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"usertest\",\n    \"surname\": \"usertest\",\t\n    \"customerId\": \"usertest\",\n    \"email\": \"usertest@email.com\",\n    \"mobile\": \"3000000000\",\n    \"phone\": null,\n    \"password\": \"usertest\",\n    \"enabled\": true\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/1.0/customer/sign-up",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"1.0",
+								"customer",
+								"sign-up"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Aug 2019 05:16:19 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"Customer created successfully\",\n    \"status\": {\n        \"status_code\": \"OK\",\n        \"status_desc\": \"SUCESS\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
